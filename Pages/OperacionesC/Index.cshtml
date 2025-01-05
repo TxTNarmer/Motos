@@ -1,0 +1,228 @@
+@page
+@model Motos.Pages.OperacionesC.Index
+@{
+    ViewData["Title"] = "Lista de Ordenes";
+}
+
+<div class="container">
+    <a class="btn btn-success mb-4" href="/OperacionesC/Crear">
+        <i class="fas fa-plus">Nueva orden</i>
+    </a>
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Id de Orden</th>
+                    <th>Dueño</th>
+                    <th>Servicio</th>
+                    <th>Encargado</th>
+                    <th>Telefono</th>
+                    <th>Pago</th>
+                    <th>Notas</th>
+                    <th>Fecha de creación</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var customer in Model.OrdenList)
+                {
+                    <tr>
+                        <td>@customer.IdOrden</td>
+                        <td>@customer.Dueño</td>
+                        <td>@customer.Servicio</td>
+                        <td>@customer.EncargadoId</td>
+                        <td>@customer.Telefono</td>
+                        <td>@customer.Pago</td>
+                        <td>@(string.IsNullOrEmpty(customer.Notas) ? "Sin notas" : customer.Notas)</td>
+                        <td>@customer.FechaHora</td>
+                        <td style="white-space: nowrap">
+                            <a class="btn btn-warning btn-sm me-2" href="/OperacionesC/Editar?idOrden=@customer.IdOrden">
+                                <i class="fas fa-edit">Editar</i>
+                            </a>
+
+                            <a class="btn btn-danger btn-sm" href="/OperacionesC/Eliminar?id=@customer.IdOrden">
+                                <i class="fas fa-trash">Eliminar</i>
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<style>
+    body {
+        background-color: #2f2f2f;
+        /* Gris oscuro */
+        font-family: 'Roboto', sans-serif;
+        color: #ffffff;
+        /* Blanco */
+        background-image: url('/imagenes/icon.jpeg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    h2 {
+        color: #d4af37;
+        /* Dorado */
+        text-shadow: 1px 1px 2px #000;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    /* Menú superior */
+    .navbar {
+        background-color: #333333;
+        /* Gris oscuro */
+        padding: 10px 20px;
+        border-bottom: 2px solid #d4af37;
+        /* Resaltado dorado en la parte inferior */
+    }
+
+    .navbar a {
+        color: #ffffff;
+        /* Blanco */
+        text-decoration: none;
+        font-weight: bold;
+        margin: 0 15px;
+        font-size: 16px;
+    }
+
+    .navbar a:hover {
+        color: #d4af37;
+        /* Dorado */
+        text-shadow: 1px 1px 2px #000;
+    }
+
+    .btn-primary,
+    .btn-warning,
+    .btn-danger {
+        padding: 10px 20px;
+        margin: 5px;
+        cursor: pointer;
+        z-index: 1000;
+        position: relative;
+        pointer-events: auto;
+    }
+
+    .btn-primary {
+        background-color: #333333;
+        /* Gris oscuro */
+        border-color: #1c1c1c;
+        font-weight: bold;
+        color: #d4af37;
+        /* Dorado */
+    }
+
+    .btn-primary:hover {
+        background-color: #1c1c1c;
+        border-color: #141414;
+    }
+
+    .btn-warning {
+        background-color: #d4af37;
+        /* Dorado */
+        border-color: #b8860b;
+        font-weight: bold;
+        color: #000;
+    }
+
+    .btn-warning:hover {
+        background-color: #b8860b;
+        border-color: #8b6508;
+    }
+
+    .btn-danger {
+        background-color: #e74c3c;
+        border-color: #c0392b;
+        font-weight: bold;
+        color: #fff;
+        z-index: 1000;
+    }
+
+    .btn-danger:hover {
+        background-color: #c0392b;
+        border-color: #96281b;
+    }
+
+    .container {
+        max-width: 100%;
+        margin: 40px auto;
+        padding: 25px;
+        background-color: #333333;
+        /* Gris oscuro */
+        border-radius: 15px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        position: relative;
+    }
+
+    .table-responsive {
+        background-color: #444444;
+        /* Gris más claro */
+        border-radius: 10px;
+        overflow: hidden;
+        border: 1px solid #666666;
+        width: 100%;
+    }
+
+    .table-dark th,
+    .table-dark td {
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    .table-dark th {
+        background-color: #333333;
+        /* Gris oscuro */
+        color: #d4af37;
+        /* Dorado */
+        font-weight: bold;
+    }
+
+    .table-dark td {
+        color: #ffffff;
+        /* Blanco */
+    }
+
+    .table-dark tbody tr:hover {
+        background-color: #d4af37;
+        /* Dorado */
+        color: #333333;
+        /* Gris oscuro */
+    }
+
+    .table-dark td:first-child,
+    .table-dark th:first-child {
+        text-align: left;
+    }
+
+    .table-dark td:last-child,
+    .table-dark th:last-child {
+        text-align: right;
+    }
+
+    .text-center {
+        text-align: center;
+    }
+
+    i.fas.fa-motorcycle {
+        margin-right: 5px;
+        color: #d4af37;
+        /* Dorado */
+    }
+
+    /* Agregar una imagen al costado si lo deseas */
+    .container:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 200px;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        border-radius: 15px;
+    }
+</style>

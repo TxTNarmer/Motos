@@ -51,6 +51,7 @@ C:\Motos\obj\Debug\net9.0\Motos.csproj.CoreCompileInputs.cache
 C:\Motos\obj\Debug\net9.0\Motos.MvcApplicationPartsAssemblyInfo.cache
 C:\Motos\obj\Debug\net9.0\Motos.RazorAssemblyInfo.cache
 C:\Motos\obj\Debug\net9.0\Motos.RazorAssemblyInfo.cs
+C:\Motos\obj\Debug\net9.0\Motos.sourcelink.json
 C:\Motos\obj\Debug\net9.0\scopedcss\Pages\Shared\_Layout.cshtml.rz.scp.css
 C:\Motos\obj\Debug\net9.0\scopedcss\bundle\Motos.styles.css
 C:\Motos\obj\Debug\net9.0\scopedcss\projectbundle\Motos.bundle.scp.css
